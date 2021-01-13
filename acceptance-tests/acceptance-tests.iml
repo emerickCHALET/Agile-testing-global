@@ -7,5 +7,18 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="file:///Library/Java/JUNIT" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file:///Library/Java/JUNIT" />
+        </SOURCES>
+        <jarDirectory url="file:///Library/Java/JUNIT" recursive="false" />
+        <jarDirectory url="file:///Library/Java/JUNIT" recursive="false" type="SOURCES" />
+      </library>
+    </orderEntry>
   </component>
 </module>
