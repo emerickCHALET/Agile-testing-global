@@ -41,8 +41,7 @@ public class HomepageSteps {
 
     @Then("^le titre doit être \"([^\"]*)\"$")
     public void le_titre_doit_être(String arg1) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        assertEquals(driver.getTitle(),arg1);
     }
 
     @Then("^la description contient \"([^\"]*)\"$")
@@ -51,8 +50,8 @@ public class HomepageSteps {
         throw new PendingException();
     }
 
-    @Then("^les punchlines contiennent \"([^\"]*)\", Systèmes d'énergie solaire et Powerwalls\"$")
-    public void les_punchlines_contiennent_Systèmes_d_énergie_solaire_et_Powerwalls(String arg1) throws Throwable {
+    @Then("^les punchlines contiennent \"([^\"]*)\"$")
+    public void les_punchlines_contiennent(String arg1) throws Throwable {
         // Write code here that turns the phrase above into concrete actions
         throw new PendingException();
     }
@@ -68,7 +67,6 @@ public class HomepageSteps {
         // Write code here that turns the phrase above into concrete actions
         throw new PendingException();
     }
-
 
     @After
     public void afterScenario() {
