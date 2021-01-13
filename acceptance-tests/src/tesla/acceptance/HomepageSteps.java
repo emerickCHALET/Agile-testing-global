@@ -46,8 +46,7 @@ public class HomepageSteps {
 
     @Then("^la description contient \"([^\"]*)\"$")
     public void la_description_contient(String arg1) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        assertTrue(driver.findElement(By.xpath("//meta[@name='description']")).getAttribute("content").contains(arg1));
     }
 
     @Then("^les punchlines contiennent \"([^\"]*)\"$")
