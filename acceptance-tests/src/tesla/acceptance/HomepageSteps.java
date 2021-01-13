@@ -36,21 +36,39 @@ public class HomepageSteps {
 
     @Given("^je suis sur la homepage$")
     public void je_suis_sur_la_homepage() throws Throwable {
-        driver.get("https://www.meetup.com/fr-FR/");
+        driver.get("https://www.tesla.com/fr_FR/");
     }
 
     @Then("^le titre doit être \"([^\"]*)\"$")
     public void le_titre_doit_être(String arg1) throws Throwable {
-        assertEquals(driver.getTitle(), arg1);
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
     }
 
     @Then("^la description contient \"([^\"]*)\"$")
-    public void la_description_doit_être(String arg1) throws Throwable {
-        // By CSS Selector
-        assertTrue(driver.findElement(By.cssSelector("meta[name='description']")).getAttribute("content").contains(arg1));
-        // By XPATH, si vous préférez...
-        // assertEquals(driver.findElement(By.xpath("//meta[@name='description']")).getAttribute("content"), arg1);
+    public void la_description_contient(String arg1) throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
     }
+
+    @Then("^les punchlines contiennent \"([^\"]*)\", Systèmes d'énergie solaire et Powerwalls\"$")
+    public void les_punchlines_contiennent_Systèmes_d_énergie_solaire_et_Powerwalls(String arg1) throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Then("^les liens du menus contiennent \"([^\"]*)\"$")
+    public void les_liens_du_menus_contiennent(String arg1) throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @Then("^les liens du burger menu contiennent \"([^\"]*)\"$")
+    public void les_liens_du_burger_menu_contiennent(String arg1) throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
 
     @After
     public void afterScenario() {
