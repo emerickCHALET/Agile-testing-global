@@ -55,13 +55,13 @@ public class EvenementsTeslaSteps {
     @Then("^je remplis le champ code postal avec \"([^\"]*)\"$")
     public void je_remplis_le_champ_code_postal_avec(String arg1) throws Throwable {
 
-        driver.findElement(By.xpath("//*[@id=\"edit-phonenumber-td\"]")).sendKeys(arg1);
+        driver.findElement(By.xpath("//*[@id=\"edit-zipcode-td\"]")).sendKeys(arg1);
     }
 
     @Then("^je click sur \"([^\"]*)\"$")
     public void je_click_sur(String arg1) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+
+
     }
 
     @Then("^le message d'erreur apparait$")
