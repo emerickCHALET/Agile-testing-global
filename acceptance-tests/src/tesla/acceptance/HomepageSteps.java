@@ -83,8 +83,8 @@ public class HomepageSteps {
         driver.get("https://www.tesla.com/fr_fr/models/design");
     }
 
-    @Given("^je suis sur commander Model S$")
-    public void je_suis_sur_commander_Model_S() throws Throwable {
+    @Given("^je suis sur Model S$")
+    public void je_suis_sur_Model_S() throws Throwable {
         driver.get("https://www.tesla.com/fr_fr/models/design");
     }
 
@@ -92,6 +92,32 @@ public class HomepageSteps {
     public void le_prix_affiché_en_LOA_est_de(String arg1) throws Throwable {
         assertEquals(driver.findElement(By.cssSelector(".finance-item--price.finance-item--price-before-savings")).getText(),arg1);
 
+    }
+
+    @Given("^je suis sur le model S$")
+    public void je_suis_sur_le_model_S() throws Throwable {
+        driver.get("https://www.tesla.com/fr_fr/models/design");
+    }
+
+    @Then("^Le prix affiché  est de \"([^\"]*)\"$")
+    public void le_prix_affiché_est_de(String arg1) throws Throwable {
+        assertEquals(driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[3]/div/div/div/div[2]/div[2]/p")).getText(),arg1);
+
+    }
+
+    @Then("^Quand je click sur \"([^\"]*)\"$")
+    public void quand_je_click_sur(String arg1) throws Throwable {
+        driver.findElement(By.cssSelector(".finance-content--modal")).click();
+    }
+
+    @Then("^Le prix du montant total avec achat au terme du contrat de \"([^\"]*)\"$")
+    public void le_prix_du_montant_total_avec_achat_au_terme_du_contrat_de(String arg1) throws Throwable {
+        assertEquals(driver.findElement(By.xpath("//*[@id=\"totalLeaseAmount\"]")).getAttribute("value"),arg1);
+    }
+
+    @Given("^je suis sur commander Model S$")
+    public void je_suis_sur_commander_Model_S() throws Throwable {
+        driver.get("https://www.tesla.com/fr_fr/models/design");
     }
 
     @When("^je click sur \"([^\"]*)\"$")
@@ -112,33 +138,6 @@ public class HomepageSteps {
         // Write code here that turns the phrase above into concrete actions
         assertEquals(driver.findElement(By.cssSelector(".finance-item--price.finance-item--price-before-savings")).getText(),arg1);
     }
-
-
-
-
-
-    @Then("^Le prix affiché  est de \"([^\"]*)\"$")
-    public void le_prix_affiché_est_de(String arg1) throws Throwable {
-        assertEquals(driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[3]/div/div/div/div[2]/div[2]/p")).getText(),arg1);
-
-    }
-
-    @Then("^Quand je click sur \"([^\"]*)\"$")
-    public void quand_je_click_sur(String arg1) throws Throwable {
-        driver.findElement(By.cssSelector(".finance-content--modal")).click();
-    }
-
-    @Then("^Le prix du montant total avec achat au terme du contrat de \"([^\"]*)\"$")
-    public void le_prix_du_montant_total_avec_achat_au_terme_du_contrat_de(String arg1) throws Throwable {
-        assertEquals(driver.findElement(By.xpath("//*[@id=\"totalLeaseAmount\"]")).getAttribute("value"),arg1);
-    }
-
-
-
-
-
-
-
 
     @After
     public void afterScenario() {
