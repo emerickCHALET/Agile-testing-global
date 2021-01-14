@@ -90,13 +90,9 @@ public class HomepageSteps {
 
     @Then("^le prix affiché en LOA est de \"([^\"]*)\"$")
     public void le_prix_affiché_en_LOA_est_de(String arg1) throws Throwable {
-        assertEquals(driver.findElement(By.className("p.finance-item--price finance-item--price-before-savings")).getText(),arg1);
+        assertEquals(driver.findElement(By.cssSelector(".finance-item--price.finance-item--price-before-savings")).getText(),arg1);
 
     }
-
-
-
-
 
     @After
     public void afterScenario() {
