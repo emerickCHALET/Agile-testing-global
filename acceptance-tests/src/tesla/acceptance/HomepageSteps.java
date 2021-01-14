@@ -73,65 +73,28 @@ public class HomepageSteps {
     //     throw new PendingException();
     // }
 
-    // @Given("^je suis sur la model S$")
-    // public void je_suis_sur_la_model_S() throws Throwable {
-    //     driver.get("https://www.tesla.com/fr_fr/models");
-    // }
+    @Given("^je suis sur le modelS$")
+    public void je_suis_sur_le_modelS() throws Throwable {
 
-    // @When("^je click sur commander Model S$")
-    // public void je_click_sur_commander_Model_S() throws Throwable {
-    //     driver.findElement(By.cssSelector(".tds-btn.tcl-button.tds-btn--outline")).click();
-    // }
-
-    // @Then("^le site me renvoie sur \"([^\"]*)\"$")
-    // public void le_site_me_renvoie_sur(String arg1) throws Throwable {
-    //     driver.get("https://www.tesla.com/fr_fr/models/design");
-    // }
-
-    // @Given("^je suis sur commander Model S$")
-    // public void je_suis_sur_commander_Model_S() throws Throwable {
-    //     driver.get("https://www.tesla.com/fr_fr/models/design");
-    // }
-
-    // @Then("^le prix affiché en LOA est de \"([^\"]*)\"$")
-    // public void le_prix_affiché_en_LOA_est_de(String arg1) throws Throwable {
-    //     assertEquals(driver.findElement(By.cssSelector(".finance-item--price.finance-item--price-before-savings")).getText(),arg1);
-
-    // }
-
-    @Given("^je suis sur la page  model S$")
-    public void je_suis_sur_la_page_model_S() throws Throwable {
-        driver.get("https://www.tesla.com/fr_fr/models/");
+        driver.get("https://www.tesla.com/fr_fr/models");
     }
 
-    @Then("^je configure mon modèle S$")
-    public void je_configure_mon_modèle_S() throws Throwable {
-        driver.findElement(By.cssSelector("a[href='https://www.tesla.com/fr_fr/']")).click();
-        Thread.sleep(3000);
-    }
- 
-    @Then("^je clic donc sur le logo en haut à gauche de la page puis en bas de page sur le lien Localisations j'arrive sur la page dont l'url est : \"([^\"]*)\"$")
-    public void je_clic_donc_sur_le_logo_en_haut_à_gauche_de_la_page_puis_en_bas_de_page_sur_le_lien_Localisations_j_arrive_sur_la_page_dont_l_url_est(String arg1) throws Throwable {
-        driver.findElement(By.cssSelector("a.tds-menu-header-main--logo")).click();
-        Thread.sleep(3000);
-        assertEquals(driver.getCurrentUrl(), "https://www.tesla.com/fr_fr/");
+    @Then("^je click sur le bouton commander avec lurl \"([^\"]*)\"$")
+    public void je_click_sur_le_bouton_commander_avec_lurl(String arg1) throws Throwable {
 
+        assertEquals(driver.findElement(By.xpath("//*[@id=\"tesla-hero-showcase-1166\"]/div/div[1]/div/div[2]/div/div[6]/a")).getAttribute("href"),arg1);
+        driver.findElement(By.xpath("//*[@id=\"tesla-hero-showcase-1166\"]/div/div[1]/div/div[2]/div/div[6]/a")).click();
+    }
     @Given("^je suis sur Model S$")
     public void je_suis_sur_Model_S() throws Throwable {
         driver.get("https://www.tesla.com/fr_fr/models/design");
-        driver.findElement(By.tagName("body")).click();
-        driver.findElement(By.tagName("body")).sendKeys(Keys.END);
-        Thread.sleep(3000);
-  
-        driver.findElement(By.cssSelector("a[href='/fr_fr/findus/list']")).click();
-        System.out.println(driver.getCurrentUrl());
     }
 
+    @Then("^le prix affiché en LOA est de \"([^\"]*)\"$")
+    public void le_prix_affiché_en_LOA_est_de(String arg1) throws Throwable {
+        assertEquals(driver.findElement(By.cssSelector(".finance-item--price.finance-item--price-before-savings")).getText(),arg1);
 
-    // @Then("^puis en bas de page sur le lien Localisations$")
-    // public void puis_en_bas_de_page_sur_le_lien_Localisations() throws Throwable {
-        
-    // }
+    }
 
     @Given("^je suis sur le model S$")
     public void je_suis_sur_le_model_S() throws Throwable {
@@ -159,6 +122,39 @@ public class HomepageSteps {
         driver.get("https://www.tesla.com/fr_fr/models/design");
     }
 
+    @When("^je click sur Performance \"([^\"]*)\"$")
+    public void je_click_sur_Performance(String arg1) throws Throwable {
+        driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div/div[3]/div[1]/div[3]/div[2]")).click();
+        Thread.sleep(10000);
+    }
+
+    @Then("^le prix affiché en LOA PERFORMANCE est de \"([^\"]*)\"$")
+    public void le_prix_affiché_en_LOA_PERFORMANCE_est_de(String arg1) throws Throwable {
+        Thread.sleep(10000);
+        assertEquals(driver.findElement(By.cssSelector(".finance-item--price.finance-item--price-before-savings")).getText(),arg1);
+    }
+
+    @Then("^Le prix affiché est \"([^\"]*)\"$")
+    public void le_prix_affiché_est(String arg1) throws Throwable {
+        assertEquals(driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[3]/div/div/div/div[2]/div[2]/p")).getText(),arg1);
+
+    }
+
+    @Then("^Quand je click sur le bouton \"([^\"]*)\"$")
+    public void quand_je_click_sur_le_bouton(String arg1) throws Throwable {
+        driver.findElement(By.cssSelector(".finance-content--modal")).click();
+    }
+
+    @Then("^Le prix du montant total avec achat au terme du contrat est alors de \"([^\"]*)\"$")
+    public void le_prix_du_montant_total_avec_achat_au_terme_du_contrat_est_alors_de(String arg1) throws Throwable {
+        assertEquals(driver.findElement(By.xpath("//*[@id=\"totalLeaseAmount\"]")).getAttribute("value"),arg1);
+    }
+
+    @Given("^je suis sur commander ModelS$")
+    public void je_suis_sur_commander_ModelS() throws Throwable {
+        driver.get("https://www.tesla.com/fr_fr/models/design");
+    }
+
     @When("^je click sur \"([^\"]*)\"$")
     public void je_click_sur(String arg1) throws Throwable {
 
@@ -169,39 +165,38 @@ public class HomepageSteps {
     public void je_click_sur_l_option(String arg1) throws Throwable {
 
         driver.findElement(By.xpath("/html/body/div[1]/div/main/div/div/div[2]/div[2]/div/div/div/div[2]/div[2]/div[2]/div[1]")).click();
-
     }
-
-
-
 
     @Then("^le prix affiché en LOA est alors de \"([^\"]*)\"$")
     public void le_prix_affiché_en_LOA_est_alors_de(String arg1) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
+
         assertEquals(driver.findElement(By.cssSelector(".finance-item--price.finance-item--price-before-savings")).getText(),arg1);
     }
 
-    @When("^je click sur Performance \"([^\"]*)\"$")
-    public void je_click_sur_Performance(String arg1) throws Throwable {
-        driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div/div[3]/div[1]/div[3]/div[2]")).click();
-
-
-        Thread.sleep(10000);
-
+    @Given("^je suis sur la page  model S$")
+    public void je_suis_sur_la_page_model_S() throws Throwable {
+        driver.get("https://www.tesla.com/fr_fr/models/");
     }
 
-
-    @Then("^le prix affiché en LOA PERFORMANCE est de \"([^\"]*)\"$")
-    public void le_prix_affiché_en_LOA_PERFORMANCE_est_de(String arg1) throws Throwable {
-        Thread.sleep(10000);
-        assertEquals(driver.findElement(By.cssSelector(".finance-item--price.finance-item--price-before-savings")).getText(),arg1);
+    @Then("^je configure mon modèle S$")
+    public void je_configure_mon_modèle_S() throws Throwable {
+        driver.findElement(By.cssSelector("a[href='https://www.tesla.com/fr_fr/']")).click();
+        Thread.sleep(3000);
     }
 
+    @Then("^je clic donc sur le logo en haut à gauche de la page puis en bas de page sur le lien Localisations j'arrive sur la page dont l'url est : \"([^\"]*)\"$")
+    public void je_clic_donc_sur_le_logo_en_haut_à_gauche_de_la_page_puis_en_bas_de_page_sur_le_lien_Localisations_j_arrive_sur_la_page_dont_l_url_est(String arg1) throws Throwable {
+        driver.findElement(By.cssSelector("a.tds-menu-header-main--logo")).click();
+        Thread.sleep(3000);
+        assertEquals(driver.getCurrentUrl(), "https://www.tesla.com/fr_fr/");
 
-    // @Then("^j'arrive sur la page dont l'url est : \"([^\"]*)\"$")
-    // public void j_arrive_sur_la_page_dont_l_url_est(String arg1) throws Throwable {
-        
-    // }
+        driver.findElement(By.tagName("body")).click();
+        driver.findElement(By.tagName("body")).sendKeys(Keys.END);
+        Thread.sleep(3000);
+
+        driver.findElement(By.cssSelector("a[href='/fr_fr/findus/list']")).click();
+        System.out.println(driver.getCurrentUrl());
+    }
 
     @After
     public void afterScenario() {
