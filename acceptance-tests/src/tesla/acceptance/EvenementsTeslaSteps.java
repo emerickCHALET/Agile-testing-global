@@ -61,19 +61,13 @@ public class EvenementsTeslaSteps {
     @Then("^je click sur \"([^\"]*)\"$")
     public void je_click_sur(String arg1) throws Throwable {
 
-
+        driver.findElement(By.xpath("//*[@id=\"edit-submit-td-ajax\"]")).click();
     }
 
-    @Then("^le message d'erreur apparait$")
-    public void le_message_d_erreur_apparait() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
+    @Then("^le message d'erreur \"([^\"]*)\" apparait$")
+    public void le_message_d_erreur_apparait(String arg1) throws Throwable {
 
-    @Then("^les liens du menus contiennent \"([^\"]*)\" et \"([^\"]*)\"$")
-    public void les_liens_du_menus_contiennent_et(String arg1, String arg2) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        assertEquals(driver.findElement(By.className("parsley-required")).getText(),arg1);
     }
 
 

@@ -6,4 +6,4 @@ Feature: Fonctionnalités de ma page Evenements
     And je remplis le champ téléphone avec "0640459520"
     And je remplis le champ code postal avec "95370"
     And je click sur "Suivant"
-    Then le message d'erreur apparait
+    Then le message d'erreur "obligatoire" apparait
