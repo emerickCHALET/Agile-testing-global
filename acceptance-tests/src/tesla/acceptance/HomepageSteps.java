@@ -75,7 +75,7 @@ public class HomepageSteps {
 
     @When("^je click sur commander Model S$")
     public void je_click_sur_commander_Model_S() throws Throwable {
-        driver.findElement(By.cssSelector(" .hero-callouts--button cmp-animate--to_reveal cmp-animate--revealed .tds-btn tcl-button tds-btn--outline")).click();
+        driver.findElement(By.cssSelector(".tds-btn.tcl-button.tds-btn--outline")).click();
     }
 
     @Then("^le site me renvoie sur \"([^\"]*)\"$")
