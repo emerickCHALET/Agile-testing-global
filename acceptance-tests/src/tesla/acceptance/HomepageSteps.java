@@ -94,6 +94,26 @@ public class HomepageSteps {
 
     }
 
+    @When("^je click sur \"([^\"]*)\"$")
+    public void je_click_sur(String arg1) throws Throwable {
+
+        driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[1]/div[2]/ul/li[4]")).click();
+    }
+
+    @Then("^je click sur l'option \"([^\"]*)\"$")
+    public void je_click_sur_l_option(String arg1) throws Throwable {
+
+        driver.findElement(By.xpath("/html/body/div[1]/div/main/div/div/div[2]/div[2]/div/div/div/div[2]/div[2]/div[2]/div[1]")).click();
+
+    }
+
+    @Then("^le prix affiché en LOA est alors de \"([^\"]*)\"$")
+    public void le_prix_affiché_en_LOA_est_alors_de(String arg1) throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        assertEquals(driver.findElement(By.cssSelector(".finance-item--price.finance-item--price-before-savings")).getText(),arg1);
+    }
+
+
     @After
     public void afterScenario() {
         driver.quit();
