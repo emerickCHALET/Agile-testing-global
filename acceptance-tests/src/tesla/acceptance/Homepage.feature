@@ -49,3 +49,12 @@ Feature: Fonctionnalités de ma page d'accueil
       | Nous trouver           |
       | Evénements             |
       | Assistance             |
+
+  Scenario: Le bouton commander du  Model S doit contenir "https://www.tesla.com/fr_fr/models/design"
+    Given je suis sur la model S
+    When je click sur commander Model S
+    Then le site me renvoie sur "https://www.tesla.com/fr_fr/models/design"
+
+  Scenario: Le prix affiché en LOA est de "à partir de 768 € /mois*"
+    Given je suis sur commander Model S
+    Then le prix affiché en LOA est de "A partir de 768 € /mois*"

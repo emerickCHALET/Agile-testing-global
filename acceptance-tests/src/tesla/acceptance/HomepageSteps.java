@@ -68,6 +68,36 @@ public class HomepageSteps {
         throw new PendingException();
     }
 
+    @Given("^je suis sur la model S$")
+    public void je_suis_sur_la_model_S() throws Throwable {
+        driver.get("https://www.tesla.com/fr_fr/models");
+    }
+
+    @When("^je click sur commander Model S$")
+    public void je_click_sur_commander_Model_S() throws Throwable {
+        driver.findElement(By.cssSelector(" .hero-callouts--button cmp-animate--to_reveal cmp-animate--revealed .tds-btn tcl-button tds-btn--outline")).click();
+    }
+
+    @Then("^le site me renvoie sur \"([^\"]*)\"$")
+    public void le_site_me_renvoie_sur(String arg1) throws Throwable {
+        driver.get("https://www.tesla.com/fr_fr/models/design");
+    }
+
+    @Given("^je suis sur commander Model S$")
+    public void je_suis_sur_commander_Model_S() throws Throwable {
+        driver.get("https://www.tesla.com/fr_fr/models/design");
+    }
+
+    @Then("^le prix affiché en LOA est de \"([^\"]*)\"$")
+    public void le_prix_affiché_en_LOA_est_de(String arg1) throws Throwable {
+        assertEquals(driver.findElement(By.className("p.finance-item--price finance-item--price-before-savings")).getText(),arg1);
+
+    }
+
+
+
+
+
     @After
     public void afterScenario() {
         driver.quit();
