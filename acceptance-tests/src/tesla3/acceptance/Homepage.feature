@@ -20,3 +20,12 @@ Feature: Fonctionnalités de ma page Evenements
     And je click sur "Suivant"
     Then le message d'erreur "obligatoire" apparait
 
+  Scenario: Lorsque je cherche un événement à Londres, Royaume-Uni, le premier résultat de recherche indique un événement localisé à Royaume-Uni
+    Given Je suis sur la page de "events"
+    Then Je clique sur recherche puis rentre London
+    And Je verifie que le premier élement soit "Royaume-Uni"
+
+  Scenario: Je souhaite m'inscrire à un événement qui aura lieu au Japon
+    Given je suis sur la page event
+    And je fais donc la recherche pour le Japon, puis je clic sur le lien inscription de cet événement. Je suis alors redirigé vers la page de connexion à mon compte Tesla "https://auth.tesla.com/"
+

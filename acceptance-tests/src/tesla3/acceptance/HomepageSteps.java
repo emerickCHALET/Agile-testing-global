@@ -11,6 +11,8 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import static org.junit.Assert.*;
 import static org.hamcrest.Matchers.*;
+
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.By;
@@ -115,6 +117,53 @@ public class HomepageSteps {
     public void le_message_d_erreur_apparait(String arg1) throws Throwable {
 
         assertEquals(driver.findElement(By.className("parsley-required")).getText(),arg1);
+    }
+
+    @Given("^Je suis sur la page de \"([^\"]*)\"$")
+    public void je_suis_sur_la_page_de(String arg1) throws Throwable {
+        driver.get("https://www.tesla.com/fr_FR/events");
+        assertEquals(driver.getCurrentUrl(), "https://www.tesla.com/fr_FR/events");
+        Thread.sleep(3000);
+    }
+
+    @Then("^Je clique sur recherche puis rentre London$")
+    public void je_clique_sur_recherche_puis_rentre_London() throws Throwable {
+        driver.findElement(By.xpath("//input[@id='edit-geoautocomplete']")).click();
+        Thread.sleep(3000);
+        driver.findElement(By.xpath("//input[@id='edit-geoautocomplete']")).clear();
+        //Thread.sleep(3000);
+        driver.findElement(By.xpath("//input[@name='geocode']")).sendKeys("Londres");
+        Thread.sleep(3000);
+        driver.findElement(By.xpath("//input[@name='geocode']")).sendKeys(Keys.RETURN);
+        Thread.sleep(3000);
+        Thread.sleep(3000);
+        Thread.sleep(3000);
+    }
+
+    @Then("^Je verifie que le premier élement soit \"([^\"]*)\"$")
+    public void je_verifie_que_le_premier_élement_soit(String arg1) throws Throwable {
+        assertEquals(driver.findElement(By.xpath("/html/body/div[2]/div/div[3]/div/main/div/div[1]/div/div/section[2]/div/div[1]/div[7]/div/div/div[2]/div/div/div/div[2]/div[1]\n")).getText(),arg1);
+
+    }
+
+    @Given("^je fais donc la recherche pour le Japon, puis je clic sur le lien inscription de cet événement\\. Je suis alors redirigé vers la page de connexion à mon compte Tesla \"([^\"]*)\"$")
+    public void je_fais_donc_la_recherche_pour_le_Japon_puis_je_clic_sur_le_lien_inscription_de_cet_événement_Je_suis_alors_redirigé_vers_la_page_de_connexion_à_mon_compte_Tesla(String arg1) throws Throwable {
+
+            driver.get("https://www.tesla.com/fr_FR/events");
+            driver.findElement(By.xpath("//input[@id='edit-geoautocomplete']")).click();
+            Thread.sleep(3000);
+            driver.findElement(By.xpath("//input[@id='edit-geoautocomplete']")).clear();
+            //Thread.sleep(3000);
+            driver.findElement(By.xpath("//input[@name='geocode']")).sendKeys("Japon");
+            Thread.sleep(3000);
+            driver.findElement(By.xpath("//input[@name='geocode']")).sendKeys(Keys.RETURN);
+            Thread.sleep(3000);
+            //  driver.findElement(By.xpath("//input[@type='submit']")).click();
+            Thread.sleep(3000);
+            driver.findElement(By.xpath("//a[@href='/fr_FR/event/kawasaki']")).click();
+            Thread.sleep(3000);
+            assertTrue(driver.getCurrentUrl().contains("https://auth.tesla.com/"));
+
     }
 
     @After
