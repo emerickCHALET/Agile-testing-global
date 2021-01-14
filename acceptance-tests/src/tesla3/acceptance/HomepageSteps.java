@@ -1,4 +1,4 @@
-package tesla.acceptance;
+package tesla3.acceptance;
 import java.util.concurrent.TimeUnit;
 import java.lang.*;
 import org.junit.Test;
@@ -15,7 +15,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-public class EvenementsTeslaSteps {
+public class HomepageSteps {
 
     public static WebDriver driver;
 
