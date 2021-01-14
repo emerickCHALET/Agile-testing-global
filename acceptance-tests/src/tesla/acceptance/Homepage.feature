@@ -73,3 +73,11 @@ Feature: Fonctionnalités de ma page d'accueil
     Then le prix affiché en LOA est alors de "A partir de 857 € /mois*"
 
 
+   Scenario: Lorsque je sélectionne le modèle "Performance", le prix en LOA est à 969€/mois et 108€/mois d'économies de carburant estimées
+   et un montant total avec achat au terme du contrat de 114 052€.
+    Given je suis sur commander Model S
+    When je click sur Performance "Performance"
+    Then le prix affiché en LOA PERFORMANCE est de "A partir de 969 € /mois*"
+    And Le prix affiché  est de "A partir de - 108 € /mois"
+    And Quand je click sur "Voir détails"
+    And Le prix du montant total avec achat au terme du contrat de "114 052 €"

@@ -133,11 +133,31 @@ public class HomepageSteps {
 
     }
 
+
+
+
     @Then("^le prix affiché en LOA est alors de \"([^\"]*)\"$")
     public void le_prix_affiché_en_LOA_est_alors_de(String arg1) throws Throwable {
         // Write code here that turns the phrase above into concrete actions
         assertEquals(driver.findElement(By.cssSelector(".finance-item--price.finance-item--price-before-savings")).getText(),arg1);
     }
+
+    @When("^je click sur Performance \"([^\"]*)\"$")
+    public void je_click_sur_Performance(String arg1) throws Throwable {
+        driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div/div[3]/div[1]/div[3]/div[2]")).click();
+
+
+        Thread.sleep(10000);
+
+    }
+
+
+    @Then("^le prix affiché en LOA PERFORMANCE est de \"([^\"]*)\"$")
+    public void le_prix_affiché_en_LOA_PERFORMANCE_est_de(String arg1) throws Throwable {
+        Thread.sleep(10000);
+        assertEquals(driver.findElement(By.cssSelector(".finance-item--price.finance-item--price-before-savings")).getText(),arg1);
+    }
+
 
     @After
     public void afterScenario() {
