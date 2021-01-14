@@ -21,6 +21,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.By;
 
+import org.openqa.selenium.interactions.Actions;
+
+import java.time.Duration;
+import org.openqa.selenium.Keys;
+
 public class HomepageSteps {
 
     public static WebDriver driver;
@@ -34,65 +39,99 @@ public class HomepageSteps {
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
 
-    @Given("^je suis sur la homepage$")
-    public void je_suis_sur_la_homepage() throws Throwable {
-        driver.get("https://www.tesla.com/fr_FR/");
+    // @Given("^je suis sur la homepage$")
+    // public void je_suis_sur_la_homepage() throws Throwable {
+    //     driver.get("https://www.tesla.com/fr_FR/");
+    // }
+
+    // @Then("^le titre doit être \"([^\"]*)\"$")
+    // public void le_titre_doit_être(String arg1) throws Throwable {
+    //     assertEquals(driver.getTitle(),arg1);
+    // }
+
+    // @Then("^la description contient \"([^\"]*)\"$")
+    // public void la_description_contient(String arg1) throws Throwable {
+    //     // Write code here that turns the phrase above into concrete actions
+    //     throw new PendingException();
+    // }
+
+    // @Then("^les punchlines contiennent \"([^\"]*)\"$")
+    // public void les_punchlines_contiennent(String arg1) throws Throwable {
+    //     // Write code here that turns the phrase above into concrete actions
+    //     throw new PendingException();
+    // }
+
+    // @Then("^les liens du menus contiennent \"([^\"]*)\"$")
+    // public void les_liens_du_menus_contiennent(String arg1) throws Throwable {
+    //     // Write code here that turns the phrase above into concrete actions
+    //     throw new PendingException();
+    // }
+
+    // @Then("^les liens du burger menu contiennent \"([^\"]*)\"$")
+    // public void les_liens_du_burger_menu_contiennent(String arg1) throws Throwable {
+    //     // Write code here that turns the phrase above into concrete actions
+    //     throw new PendingException();
+    // }
+
+    // @Given("^je suis sur la model S$")
+    // public void je_suis_sur_la_model_S() throws Throwable {
+    //     driver.get("https://www.tesla.com/fr_fr/models");
+    // }
+
+    // @When("^je click sur commander Model S$")
+    // public void je_click_sur_commander_Model_S() throws Throwable {
+    //     driver.findElement(By.cssSelector(".tds-btn.tcl-button.tds-btn--outline")).click();
+    // }
+
+    // @Then("^le site me renvoie sur \"([^\"]*)\"$")
+    // public void le_site_me_renvoie_sur(String arg1) throws Throwable {
+    //     driver.get("https://www.tesla.com/fr_fr/models/design");
+    // }
+
+    // @Given("^je suis sur commander Model S$")
+    // public void je_suis_sur_commander_Model_S() throws Throwable {
+    //     driver.get("https://www.tesla.com/fr_fr/models/design");
+    // }
+
+    // @Then("^le prix affiché en LOA est de \"([^\"]*)\"$")
+    // public void le_prix_affiché_en_LOA_est_de(String arg1) throws Throwable {
+    //     assertEquals(driver.findElement(By.cssSelector(".finance-item--price.finance-item--price-before-savings")).getText(),arg1);
+
+    // }
+
+    @Given("^je suis sur la page  model S$")
+    public void je_suis_sur_la_page_model_S() throws Throwable {
+        driver.get("https://www.tesla.com/fr_fr/models/");
     }
 
-    @Then("^le titre doit être \"([^\"]*)\"$")
-    public void le_titre_doit_être(String arg1) throws Throwable {
-        assertEquals(driver.getTitle(),arg1);
+    @Then("^je configure mon modèle S$")
+    public void je_configure_mon_modèle_S() throws Throwable {
+        driver.findElement(By.cssSelector("a[href='https://www.tesla.com/fr_fr/']")).click();
+        Thread.sleep(3000);
     }
-
-    @Then("^la description contient \"([^\"]*)\"$")
-    public void la_description_contient(String arg1) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    @Then("^les punchlines contiennent \"([^\"]*)\"$")
-    public void les_punchlines_contiennent(String arg1) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    @Then("^les liens du menus contiennent \"([^\"]*)\"$")
-    public void les_liens_du_menus_contiennent(String arg1) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    @Then("^les liens du burger menu contiennent \"([^\"]*)\"$")
-    public void les_liens_du_burger_menu_contiennent(String arg1) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-
-    @Given("^je suis sur la model S$")
-    public void je_suis_sur_la_model_S() throws Throwable {
-        driver.get("https://www.tesla.com/fr_fr/models");
-    }
-
-    @When("^je click sur commander Model S$")
-    public void je_click_sur_commander_Model_S() throws Throwable {
-        driver.findElement(By.cssSelector(".tds-btn.tcl-button.tds-btn--outline")).click();
-    }
-
-    @Then("^le site me renvoie sur \"([^\"]*)\"$")
-    public void le_site_me_renvoie_sur(String arg1) throws Throwable {
-        driver.get("https://www.tesla.com/fr_fr/models/design");
-    }
+ 
+    @Then("^je clic donc sur le logo en haut à gauche de la page puis en bas de page sur le lien Localisations j'arrive sur la page dont l'url est : \"([^\"]*)\"$")
+    public void je_clic_donc_sur_le_logo_en_haut_à_gauche_de_la_page_puis_en_bas_de_page_sur_le_lien_Localisations_j_arrive_sur_la_page_dont_l_url_est(String arg1) throws Throwable {
+        driver.findElement(By.cssSelector("a.tds-menu-header-main--logo")).click();
+        Thread.sleep(3000);
+        assertEquals(driver.getCurrentUrl(), "https://www.tesla.com/fr_fr/");
 
     @Given("^je suis sur Model S$")
     public void je_suis_sur_Model_S() throws Throwable {
         driver.get("https://www.tesla.com/fr_fr/models/design");
+        driver.findElement(By.tagName("body")).click();
+        driver.findElement(By.tagName("body")).sendKeys(Keys.END);
+        Thread.sleep(3000);
+  
+        driver.findElement(By.cssSelector("a[href='/fr_fr/findus/list']")).click();
+        System.out.println(driver.getCurrentUrl());
     }
 
-    @Then("^le prix affiché en LOA est de \"([^\"]*)\"$")
-    public void le_prix_affiché_en_LOA_est_de(String arg1) throws Throwable {
-        assertEquals(driver.findElement(By.cssSelector(".finance-item--price.finance-item--price-before-savings")).getText(),arg1);
 
-    }
+    // @Then("^puis en bas de page sur le lien Localisations$")
+    // public void puis_en_bas_de_page_sur_le_lien_Localisations() throws Throwable {
+        
+    // }
 
     @Given("^je suis sur le model S$")
     public void je_suis_sur_le_model_S() throws Throwable {
@@ -158,6 +197,11 @@ public class HomepageSteps {
         assertEquals(driver.findElement(By.cssSelector(".finance-item--price.finance-item--price-before-savings")).getText(),arg1);
     }
 
+
+    // @Then("^j'arrive sur la page dont l'url est : \"([^\"]*)\"$")
+    // public void j_arrive_sur_la_page_dont_l_url_est(String arg1) throws Throwable {
+        
+    // }
 
     @After
     public void afterScenario() {
