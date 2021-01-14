@@ -114,6 +114,32 @@ public class HomepageSteps {
     }
 
 
+
+
+
+    @Then("^Le prix affiché  est de \"([^\"]*)\"$")
+    public void le_prix_affiché_est_de(String arg1) throws Throwable {
+        assertEquals(driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[3]/div/div/div/div[2]/div[2]/p")).getText(),arg1);
+
+    }
+
+    @Then("^Quand je click sur \"([^\"]*)\"$")
+    public void quand_je_click_sur(String arg1) throws Throwable {
+        driver.findElement(By.cssSelector(".finance-content--modal")).click();
+    }
+
+    @Then("^Le prix du montant total avec achat au terme du contrat de \"([^\"]*)\"$")
+    public void le_prix_du_montant_total_avec_achat_au_terme_du_contrat_de(String arg1) throws Throwable {
+        assertEquals(driver.findElement(By.xpath("//*[@id=\"totalLeaseAmount\"]")).getAttribute("value"),arg1);
+    }
+
+
+
+
+
+
+
+
     @After
     public void afterScenario() {
         driver.quit();

@@ -54,13 +54,28 @@ Feature: Fonctionnalités de ma page d'accueil
   #  Given je suis sur la model S
   #  When je click sur commander Model S
   #  Then le site me renvoie sur "https://www.tesla.com/fr_fr/models/design"
+  #Scenario: Le bouton commander du  Model S doit contenir "https://www.tesla.com/fr_fr/models/design"
+  #Given je suis sur la model S
+   # When je click sur commander Model S
+   # Then le site me renvoie sur "https://www.tesla.com/fr_fr/models/design"
 
   #Scenario: Le prix affiché en LOA est de "à partir de 768 € /mois*"
   #  Given je suis sur commander Model S
   #  Then le prix affiché en LOA est de "A partir de 768 € /mois*"
 
   Scenario: Si j'ajoute l'option pilotage automatique le LOA est "a partir de 857 € / mois*"
+ # Scenario: Le prix affiché en LOA est de "à partir de 768 € /mois*"
+  #  Given je suis sur commander Model S
+   # Then le prix affiché en LOA est de "A partir de 768 € /mois*"
+
+  Scenario: Lorsque je sélectionne le modèle Grande Autonomie Plus, 108€/mois d'économies de carburant estimées
+  et un montant total avec achat au terme du contrat de 94 841€
     Given je suis sur commander Model S
     When je click sur "Pilotage automatique"
     Then je click sur l'option "Option ajoutée"
     Then le prix affiché en LOA est alors de "A partir de 857 € /mois*"
+
+    Then Le prix affiché  est de "A partir de - 108 € /mois"
+    And Quand je click sur "Voir détails"
+    And Le prix du montant total avec achat au terme du contrat de "94 841 €"
+
