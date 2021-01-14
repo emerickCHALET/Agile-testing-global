@@ -30,20 +30,16 @@ Feature: Fonctionnalités de ma page d'accueil
       | https://www.tesla.com/fr_FR/charging  |
 
 
-  Scenario Outline: Liens du burger menu de la Homepage
+  Scenario: Liens du burger menu de la Homepage
     Given je suis sur la homepage
-    Then les liens du burger menu contiennent "<link>"
-    Examples:
-      | link                   |
-      | Véhicules disponibles  |
-      | Véhicules d'occasion   |
-      | Reprise                |
-      | Cybertruck             |
-      | Roadster               |
-      | Energie                |
-      | Essais                 |
-      | Véhicules d'occasion   |
-      | Flottes et entreprises |
-      | Nous trouver           |
-      | Evénements             |
-      | Assistance             |
+    Then le premier lien contient burger menu contient "Véhicules disponibles"
+      And le deuxieme lien contient burger menu contient "Véhicules d'occasion"
+      And le troisieme lien contient burger menu contient "Reprise"
+      And le quatrieme lien contient burger menu contient "Cybertruck"
+      And le cinquieme lien contient burger menu contient "Roadster"
+      And le sixieme lien contient burger menu contient "Énergie"
+      And le septieme lien contient burger menu contient "Essais"
+      And le huitieme lien contient burger menu contient "Flottes & Entreprises"
+      And le neuvieme lien contient burger menu contient "Nous trouver"
+      And le dixieme lien contient burger menu contient "Événements"
+      And le onzieme lien contient burger menu contient "Assistance"
