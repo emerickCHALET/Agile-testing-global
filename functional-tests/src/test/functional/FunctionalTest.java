@@ -32,7 +32,7 @@ public class FunctionalTest {
 	    	// Seems no more working in last Chrome versions
 		// driver.manage().window().maximize();
   		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-     }
+    }
 
     // Test de la Story #1-homepage (https://trello.com/c/WKTneu9o/1-homepage)
     @Test

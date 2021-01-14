@@ -46,13 +46,32 @@ public class HomepageSteps {
 
     @Then("^la description contient \"([^\"]*)\"$")
     public void la_description_contient(String arg1) throws Throwable {
-        assertTrue(driver.findElement(By.xpath("//meta[@name='description']")).getAttribute("content").contains(arg1));
+         assertTrue(driver.findElement(By.xpath("//meta[@name='description']")).getAttribute("content").contains(arg1));
     }
 
-    @Then("^les punchlines contiennent \"([^\"]*)\"$")
-    public void les_punchlines_contiennent(String arg1) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    @Then("^la premiere punchline contient \"([^\"]*)\"$")
+    public void la_premiere_punchline_contient(String arg1) throws Throwable {
+        assertTrue(driver.findElement(By.xpath("//*[contains(text(),'Model S')]")).getAttribute("innerHTML").contains(arg1));
+    }
+
+    @Then("^la deuxieme punchline contient \"([^\"]*)\"$")
+    public void la_deuxieme_punchline_contient(String arg1) throws Throwable {
+        assertTrue(driver.findElement(By.xpath("//*[contains(text(),'Model 3')]")).getAttribute("innerHTML").contains(arg1));
+    }
+
+    @Then("^la troisieme punchline contient \"([^\"]*)\"$")
+    public void la_troisieme_punchline_contient(String arg1) throws Throwable {
+        assertTrue(driver.findElement(By.xpath("//*[contains(text(),'Model X')]")).getAttribute("innerHTML").contains(arg1));
+    }
+
+    @Then("^la quatrieme punchline contient \"([^\"]*)\"$")
+    public void la_quatrieme_punchline_contient(String arg1) throws Throwable {
+        assertTrue(driver.findElement(By.xpath("//*[contains(text(),'Model Y')]")).getAttribute("innerHTML").contains(arg1));
+    }
+
+    @Then("^la cinquieme punchline contient \"([^\"]*)\"$")
+    public void la_cinquieme_punchline_contient(String arg1) throws Throwable {
+        assertTrue(driver.findElements(By.cssSelector("h1.tcl-hero-parallax__heading-color-black")).get(5).getAttribute("innerHTML").contains(arg1));
     }
 
     @Then("^les liens du menus contiennent \"([^\"]*)\"$")
