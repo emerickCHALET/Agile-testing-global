@@ -56,10 +56,9 @@ public class HomepageSteps {
         throw new PendingException();
     }
 
-    @Then("^les liens du menus contiennent \"([^\"]*)\"$")
-    public void les_liens_du_menus_contiennent(String arg1) throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    @Then("^les liens du menus contiennent \"([^\"]*)\" et \"([^\"]*)\"$")
+    public void les_liens_du_menus_contiennent_et(String arg1, String arg2) throws Throwable {
+        assertEquals(driver.findElement(By.xpath("//a[contains(text(), '"+arg1+"' )]")).getAttribute("href"),arg2);
     }
 
     @Then("^les liens du burger menu contiennent \"([^\"]*)\"$")

@@ -21,15 +21,15 @@ Feature: Fonctionnalités de ma page d'accueil
 
   Scenario Outline: Liens du menu de la Homepage
     Given je suis sur la homepage
-    Then les liens du menus contiennent "<link>"
+    Then les liens du menus contiennent "<nom>" et "<link>"
     Examples:
-      | link                                  |
-      | https://www.tesla.com/fr_FR/models    |
-      | https://www.tesla.com/fr_FR/model3    |
-      | https://www.tesla.com/fr_FR/modelx    |
-      | https://www.tesla.com/fr_FR/modely    |
-      | https://www.tesla.com/fr_fr/powerwall |
-      | https://www.tesla.com/fr_FR/charging  |
+      | nom       | link                                  |
+      | Model S   | https://www.tesla.com/fr_fr/models    |
+      | Model 3   | https://www.tesla.com/fr_fr/model3    |
+      | Model X   | https://www.tesla.com/fr_fr/modelx    |
+      | Model Y   | https://www.tesla.com/fr_fr/modely    |
+      | Powerwall | https://www.tesla.com/fr_fr/powerwall |
+      | Recharger | https://www.tesla.com/fr_fr/charging  |
 
 
   Scenario Outline: Liens du burger menu de la Homepage
