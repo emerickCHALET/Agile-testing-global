@@ -50,11 +50,20 @@ Feature: Fonctionnalités de ma page d'accueil
   #    | Evénements             |
   #    | Assistance             |
 
-  Scenario: Le bouton commander du  Model S doit contenir "https://www.tesla.com/fr_fr/models/design"
-    Given je suis sur la model S
-    When je click sur commander Model S
-    Then le site me renvoie sur "https://www.tesla.com/fr_fr/models/design"
 
-  Scenario: Le prix affiché en LOA est de "à partir de 768 € /mois*"
-    Given je suis sur commander Model S
-    Then le prix affiché en LOA est de "A partir de 768 € /mois*"
+
+# Story 2
+
+  # Scenario: Le bouton commander du  Model S doit contenir "https://www.tesla.com/fr_fr/models/design"
+  #   Given je suis sur la model S
+  #   When je click sur commander Model S
+  #   Then le site me renvoie sur "https://www.tesla.com/fr_fr/models/design"
+
+  # Scenario: Le prix affiché en LOA est de "à partir de 768 € /mois*"
+  #   Given je suis sur commander Model S
+  #   Then le prix affiché en LOA est de "A partir de 768 € /mois*"
+
+  Scenario: Une fois que j'ai configuré mon modèle S, je souhaiterais connaitre la liste des localisations de vente
+  Given  je suis sur la page  model S
+  Then je configure mon modèle S
+    And je clic donc sur le logo en haut à gauche de la page puis en bas de page sur le lien Localisations j'arrive sur la page dont l'url est : "https://www.tesla.com/fr_FR/findus/list" 
